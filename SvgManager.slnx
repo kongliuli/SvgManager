@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="SvgColorNormalizer.Api/SvgColorNormalizer.Api.csproj" />
+  <Project Path="SvgColorNormalizer.Core/SvgColorNormalizer.Core.csproj" />
+  <Project Path="SvgColorNormalizer/SvgColorNormalizer.csproj" />
+</Solution>

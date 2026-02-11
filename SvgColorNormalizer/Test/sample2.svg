@@ -6,7 +6,7 @@
       <stop offset="100%" style="stop-color:rgba(0,0,255,0.5);stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect x="10" y="10" width="280" height="80" fill="url(#grad1)" stroke="#333" stroke-width="2"/>
-  <circle cx="150" cy="150" r="40" fill="yellow" stroke="#FFA500" stroke-width="3"/>
-  <rect x="50" y="130" width="200" height="50" fill="#0080FF80" stroke="#000000"/>
+  <rect x="10" y="10" width="280" height="80" fill="url(#grad1)" stroke="#333" stroke-width="2" />
+  <circle cx="150" cy="150" r="40" fill="yellow" stroke="rgba(255, 165, 0, 1)" stroke-width="3" />
+  <rect x="50" y="130" width="200" height="50" fill="rgba(0, 128, 255, 0.5)" stroke="rgba(0, 0, 0, 1)" />
 </svg>
