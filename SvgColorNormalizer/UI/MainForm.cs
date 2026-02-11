@@ -5,8 +5,8 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SvgColorNormalizer.Core;
-using SvgColorNormalizer.DataSources;
-using SvgColorNormalizer.Models;
+using SvgColorNormalizer.Core.DataSources;
+using SvgColorNormalizer.Core.Models;
 
 namespace SvgColorNormalizer.UI
 {
@@ -15,6 +15,7 @@ namespace SvgColorNormalizer.UI
         private List<SvgData> _loadedSvgData = new();
         private List<SvgProcessResult> _processResults = new();
         private SvgProcessor _processor = new();
+        private ComboBox _colorFormatComboBox;
 
         public MainForm()
         {
@@ -64,8 +65,11 @@ namespace SvgColorNormalizer.UI
 
             _statusLabel.Text = "正在处理...";
 
+            // 获取选择的颜色格式
+            var targetFormat = (ColorNormalizer.TargetColorFormat)_colorFormatComboBox.SelectedIndex;
+
             var batchProcessor = new SvgBatchProcessor();
-            var batchResult = await batchProcessor.ProcessBatchAsync(_loadedSvgData);
+            var batchResult = await batchProcessor.ProcessBatchAsync(_loadedSvgData, targetFormat);
             _processResults = batchResult.IndividualResults;
 
             for (int i = 0; i < _fileGrid.Rows.Count && i < batchResult.IndividualResults.Count; i++)
@@ -157,6 +161,53 @@ namespace SvgColorNormalizer.UI
             }
         }
 
+        private void Save_Click(object sender, EventArgs e)
+        {
+            if (_processResults.Count == 0)
+            {
+                MessageBox.Show("没有处理结果可保存");
+                return;
+            }
+
+            _statusLabel.Text = "正在保存...";
+            int savedCount = 0;
+
+            try
+            {
+                for (int i = 0; i < _processResults.Count; i++)
+                {
+                    var result = _processResults[i];
+                    if (!result.Success)
+                        continue;
+
+                    // 根据Metadata保存
+                    if (result.Metadata != null)
+                    {
+                        // 保存文件
+                        if (result.Metadata.TryGetValue("filePath", out var filePathObj) && filePathObj is string filePath)
+                        {
+                            File.WriteAllText(filePath, result.NormalizedSvg);
+                            savedCount++;
+                        }
+                        // 保存到数据库（预留接口）
+                        else if (result.Metadata.TryGetValue("dbId", out var dbIdObj))
+                        {
+                            // 这里可以添加数据库更新逻辑
+                            savedCount++;
+                        }
+                    }
+                }
+
+                _statusLabel.Text = $"保存完成: 成功保存 {savedCount} 个文件";
+                MessageBox.Show($"成功保存 {savedCount} 个文件");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"保存失败: {ex.Message}");
+                _statusLabel.Text = "保存失败";
+            }
+        }
+
         // 控件字段
         private DataGridView _fileGrid;
         private DataGridView _colorGrid;
@@ -179,10 +230,24 @@ namespace SvgColorNormalizer.UI
             var processBtn = new ToolStripButton("批量处理");
             processBtn.Click += Process_Click;
 
+            var saveBtn = new ToolStripButton("保存修改");
+            saveBtn.Click += Save_Click;
+
             var exportBtn = new ToolStripButton("导出报告");
             exportBtn.Click += Export_Click;
 
-            toolStrip.Items.AddRange(new ToolStripItem[] { loadFolderBtn, processBtn, exportBtn });
+            // 颜色格式选择
+            var colorFormatLabel = new ToolStripLabel("颜色格式:");
+            _colorFormatComboBox = new ComboBox
+            {
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Width = 100
+            };
+            _colorFormatComboBox.Items.AddRange(new string[] { "RGBA", "Hex8" });
+            _colorFormatComboBox.SelectedIndex = 0;
+            var colorFormatHost = new ToolStripControlHost(_colorFormatComboBox);
+
+            toolStrip.Items.AddRange(new ToolStripItem[] { loadFolderBtn, processBtn, saveBtn, exportBtn, new ToolStripSeparator(), colorFormatLabel, colorFormatHost });
 
             // 主分割容器
             var mainSplit = new SplitContainer

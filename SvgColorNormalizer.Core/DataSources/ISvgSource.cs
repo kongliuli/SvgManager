@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SvgColorNormalizer.Models;
+using SvgColorNormalizer.Core.Models;
 
-namespace SvgColorNormalizer.DataSources
+namespace SvgColorNormalizer.Core.DataSources
 {
     public interface ISvgSource
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SvgColorNormalizer.Models;
+using SvgColorNormalizer.Core.Models;
 
 namespace SvgColorNormalizer.Core
 {
@@ -10,7 +10,7 @@ namespace SvgColorNormalizer.Core
     {
         private readonly SvgProcessor _processor = new();
 
-        public async Task<BatchProcessResult> ProcessBatchAsync(IEnumerable<SvgData> svgDataList)
+        public async Task<BatchProcessResult> ProcessBatchAsync(IEnumerable<SvgData> svgDataList, ColorNormalizer.TargetColorFormat targetFormat = ColorNormalizer.TargetColorFormat.Rgba)
         {
             var result = new BatchProcessResult
             {
@@ -21,7 +21,7 @@ namespace SvgColorNormalizer.Core
 
             foreach (var svgData in svgDataList)
             {
-                var processResult = _processor.ProcessSvg(svgData.Content);
+                var processResult = _processor.ProcessSvg(svgData.Content, targetFormat);
                 processResult.Source = svgData.Source;
                 processResult.Metadata = svgData.Metadata;
 
@@ -43,17 +43,5 @@ namespace SvgColorNormalizer.Core
 
             return result;
         }
-    }
-
-    public class BatchProcessResult
-    {
-        public int TotalCount { get; set; }
-        public int SuccessCount { get; set; }
-        public int FailedCount { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public TimeSpan Duration { get; set; }
-        public List<SvgProcessResult> IndividualResults { get; set; }
-        public string ErrorMessage { get; set; }
     }
 }

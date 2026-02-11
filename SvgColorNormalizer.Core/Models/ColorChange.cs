@@ -1,4 +1,4 @@
-namespace SvgColorNormalizer.Models
+namespace SvgColorNormalizer.Core.Models
 {
     public class ColorChange
     {

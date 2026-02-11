@@ -6,6 +6,12 @@ namespace SvgColorNormalizer.Core
 {
     public class ColorNormalizer
     {
+        public enum TargetColorFormat
+        {
+            Rgba,
+            Hex8
+        }
+
         private static readonly Dictionary<ColorFormat, Regex> ColorPatterns = new()
         {
             [ColorFormat.Rgb] = new Regex(@"rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)", RegexOptions.IgnoreCase),
@@ -36,52 +42,97 @@ namespace SvgColorNormalizer.Core
             ["orange"] = (255, 165, 0)
         };
 
-        public string NormalizeColor(string originalColor)
+        public string NormalizeColor(string originalColor, TargetColorFormat targetFormat = TargetColorFormat.Rgba)
         {
             if (string.IsNullOrWhiteSpace(originalColor))
                 return originalColor;
 
             originalColor = originalColor.Trim();
 
-            // 已经是RGB格式
-            if (ColorPatterns[ColorFormat.Rgb].IsMatch(originalColor) ||
-                ColorPatterns[ColorFormat.Rgba].IsMatch(originalColor))
+            // 解析原始颜色
+            var (r, g, b, a) = ParseColor(originalColor);
+            if (r == -1)
                 return originalColor;
 
-            // 6位16进制 → rgb
-            var hex6Match = ColorPatterns[ColorFormat.Hex6].Match(originalColor);
+            // 根据目标格式转换
+            return ConvertToTargetFormat(r, g, b, a, targetFormat);
+        }
+
+        private (int r, int g, int b, double a) ParseColor(string color)
+        {
+            // RGB格式
+            var rgbMatch = ColorPatterns[ColorFormat.Rgb].Match(color);
+            if (rgbMatch.Success)
+            {
+                int r = int.Parse(rgbMatch.Groups[1].Value);
+                int g = int.Parse(rgbMatch.Groups[2].Value);
+                int b = int.Parse(rgbMatch.Groups[3].Value);
+                return (r, g, b, 1.0);
+            }
+
+            // RGBA格式
+            var rgbaMatch = ColorPatterns[ColorFormat.Rgba].Match(color);
+            if (rgbaMatch.Success)
+            {
+                int r = int.Parse(rgbaMatch.Groups[1].Value);
+                int g = int.Parse(rgbaMatch.Groups[2].Value);
+                int b = int.Parse(rgbaMatch.Groups[3].Value);
+                double a = double.Parse(rgbaMatch.Groups[4].Value);
+                return (r, g, b, a);
+            }
+
+            // 6位16进制
+            var hex6Match = ColorPatterns[ColorFormat.Hex6].Match(color);
             if (hex6Match.Success)
             {
                 int r = Convert.ToInt32(hex6Match.Groups[1].Value.Substring(0, 2), 16);
                 int g = Convert.ToInt32(hex6Match.Groups[1].Value.Substring(2, 2), 16);
                 int b = Convert.ToInt32(hex6Match.Groups[1].Value.Substring(4, 2), 16);
-                return $"rgb({r}, {g}, {b})";
+                return (r, g, b, 1.0);
             }
 
-            // 8位16进制 → rgba
-            var hex8Match = ColorPatterns[ColorFormat.Hex8].Match(originalColor);
+            // 8位16进制
+            var hex8Match = ColorPatterns[ColorFormat.Hex8].Match(color);
             if (hex8Match.Success)
             {
                 int r = Convert.ToInt32(hex8Match.Groups[1].Value.Substring(0, 2), 16);
                 int g = Convert.ToInt32(hex8Match.Groups[1].Value.Substring(2, 2), 16);
                 int b = Convert.ToInt32(hex8Match.Groups[1].Value.Substring(4, 2), 16);
-                int a = Convert.ToInt32(hex8Match.Groups[1].Value.Substring(6, 2), 16);
-                double alpha = Math.Round(a / 255.0, 2);
-                return alpha == 1 ? $"rgb({r}, {g}, {b})" : $"rgba({r}, {g}, {b}, {alpha})";
+                int alpha = Convert.ToInt32(hex8Match.Groups[1].Value.Substring(6, 2), 16);
+                double a = Math.Round(alpha / 255.0, 2);
+                return (r, g, b, a);
             }
 
-            // 命名颜色 → rgb
-            var namedMatch = ColorPatterns[ColorFormat.Named].Match(originalColor);
+            // 命名颜色
+            var namedMatch = ColorPatterns[ColorFormat.Named].Match(color);
             if (namedMatch.Success)
             {
                 string colorName = namedMatch.Groups[1].Value.ToLower();
                 if (NamedColors.TryGetValue(colorName, out var rgb))
                 {
-                    return $"rgb({rgb.r}, {rgb.g}, {rgb.b})";
+                    return (rgb.r, rgb.g, rgb.b, 1.0);
                 }
             }
 
-            return originalColor;
+            return (-1, -1, -1, 0.0);
+        }
+
+        private string ConvertToTargetFormat(int r, int g, int b, double a, TargetColorFormat targetFormat)
+        {
+            switch (targetFormat)
+            {
+                case TargetColorFormat.Rgba:
+                    // 保持原始透明度
+                    return $"rgba({r}, {g}, {b}, {a})";
+                
+                case TargetColorFormat.Hex8:
+                    // 保持原始透明度
+                    int alpha = (int)Math.Round(a * 255);
+                    return $"#{r:X2}{g:X2}{b:X2}{alpha:X2}";
+                
+                default:
+                    return $"rgba({r}, {g}, {b}, {a})";
+            }
         }
     }
 

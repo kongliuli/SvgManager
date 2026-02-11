@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using SvgColorNormalizer.Models;
+using SvgColorNormalizer.Core.Models;
 
 namespace SvgColorNormalizer.Core
 {
@@ -15,7 +15,7 @@ namespace SvgColorNormalizer.Core
             "flood-color", "lighting-color"
         };
 
-        public SvgProcessResult ProcessSvg(string svgContent)
+        public SvgProcessResult ProcessSvg(string svgContent, ColorNormalizer.TargetColorFormat targetFormat = ColorNormalizer.TargetColorFormat.Rgba)
         {
             var result = new SvgProcessResult();
 
@@ -32,7 +32,7 @@ namespace SvgColorNormalizer.Core
                     foreach (var attr in element.Attributes().Where(a => ColorAttributes.Contains(a.Name.LocalName, StringComparer.OrdinalIgnoreCase)))
                     {
                         string originalColor = attr.Value;
-                        string normalizedColor = _colorNormalizer.NormalizeColor(originalColor);
+                        string normalizedColor = _colorNormalizer.NormalizeColor(originalColor, targetFormat);
 
                         if (normalizedColor != originalColor)
                         {
