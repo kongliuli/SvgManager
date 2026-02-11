@@ -22,7 +22,7 @@ namespace SvgColorNormalizer.UI
             InitializeComponent();
         }
 
-        private async void LoadFolder_Click(object sender, EventArgs e)
+        private async void LoadFolder_Click(object? sender, EventArgs e)
         {
             var dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -55,7 +55,7 @@ namespace SvgColorNormalizer.UI
             }
         }
 
-        private async void LoadDatabase_Click(object sender, EventArgs e)
+        private async void LoadDatabase_Click(object? sender, EventArgs e)
         {
             var dialog = new OpenFileDialog
             {
@@ -93,7 +93,7 @@ namespace SvgColorNormalizer.UI
             }
         }
 
-        private async void Process_Click(object sender, EventArgs e)
+        private async void Process_Click(object? sender, EventArgs e)
         {
             if (_loadedSvgData.Count == 0)
             {
@@ -130,7 +130,7 @@ namespace SvgColorNormalizer.UI
             _statusLabel.Text = $"处理完成: 成功 {batchResult.SuccessCount}, 失败 {batchResult.FailedCount}, 耗时 {batchResult.Duration.TotalSeconds:F2}秒";
         }
 
-        private void FileGrid_SelectionChanged(object sender, EventArgs e)
+        private void FileGrid_SelectionChanged(object? sender, EventArgs e)
         {
             if (_fileGrid.SelectedRows.Count == 0) return;
 
@@ -155,7 +155,7 @@ namespace SvgColorNormalizer.UI
             }
         }
 
-        private void Export_Click(object sender, EventArgs e)
+        private void Export_Click(object? sender, EventArgs e)
         {
             var saveDialog = new SaveFileDialog
             {
@@ -199,7 +199,7 @@ namespace SvgColorNormalizer.UI
             }
         }
 
-        private async void Save_Click(object sender, EventArgs e)
+        private async void Save_Click(object? sender, EventArgs e)
         {
             if (_processResults.Count == 0)
             {

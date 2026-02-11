@@ -19,12 +19,19 @@ namespace SvgColorNormalizer.Core
                 IndividualResults = new List<SvgProcessResult>()
             };
 
-            foreach (var svgData in svgDataList)
+            var tasks = svgDataList.Select(async svgData =>
             {
+                await Task.Yield(); // 让出当前线程
                 var processResult = _processor.ProcessSvg(svgData.Content, targetFormat);
                 processResult.Source = svgData.Source;
                 processResult.Metadata = svgData.Metadata;
+                return processResult;
+            });
 
+            var processResults = await Task.WhenAll(tasks);
+
+            foreach (var processResult in processResults)
+            {
                 result.IndividualResults.Add(processResult);
 
                 if (processResult.Success)
@@ -34,7 +41,7 @@ namespace SvgColorNormalizer.Core
                 else
                 {
                     result.FailedCount++;
-                    result.ErrorMessage += $"\n{svgData.Source}: {processResult.ErrorMessage}";
+                    result.ErrorMessage += $"\n{processResult.Source}: {processResult.ErrorMessage}";
                 }
             }
 
