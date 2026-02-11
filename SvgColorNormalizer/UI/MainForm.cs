@@ -55,6 +55,44 @@ namespace SvgColorNormalizer.UI
             }
         }
 
+        private async void LoadDatabase_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = "SQLite数据库文件|*.db|所有文件|*.*",
+                Title = "选择SQLite数据库文件"
+            };
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                _statusLabel.Text = "正在加载数据库...";
+
+                try
+                {
+                    var source = new SqliteSvgSource(dialog.FileName);
+                    _loadedSvgData = (await source.LoadAsync()).ToList();
+
+                    _fileGrid.Rows.Clear();
+
+                    foreach (var svgData in _loadedSvgData)
+                    {
+                        _fileGrid.Rows.Add(
+                            svgData.Source,
+                            "待处理",
+                            0
+                        );
+                    }
+
+                    _statusLabel.Text = $"已从数据库加载 {_loadedSvgData.Count} 个SVG文件";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"加载失败: {ex.Message}");
+                    _statusLabel.Text = "加载失败";
+                }
+            }
+        }
+
         private async void Process_Click(object sender, EventArgs e)
         {
             if (_loadedSvgData.Count == 0)
@@ -161,7 +199,7 @@ namespace SvgColorNormalizer.UI
             }
         }
 
-        private void Save_Click(object sender, EventArgs e)
+        private async void Save_Click(object sender, EventArgs e)
         {
             if (_processResults.Count == 0)
             {
@@ -189,10 +227,17 @@ namespace SvgColorNormalizer.UI
                             File.WriteAllText(filePath, result.NormalizedSvg);
                             savedCount++;
                         }
-                        // 保存到数据库（预留接口）
-                        else if (result.Metadata.TryGetValue("dbId", out var dbIdObj))
+                        // 保存到数据库
+                        else if (result.Metadata.TryGetValue("dbId", out var dbIdObj) && result.Metadata.TryGetValue("connectionString", out var connectionStringObj) && connectionStringObj is string connectionString)
                         {
-                            // 这里可以添加数据库更新逻辑
+                            var sqliteSource = new SqliteSvgSource(connectionString);
+                            var svgData = new SvgData
+                            {
+                                Source = result.Source,
+                                Content = result.NormalizedSvg,
+                                Metadata = result.Metadata
+                            };
+                            await sqliteSource.SaveAsync(svgData);
                             savedCount++;
                         }
                     }
@@ -227,6 +272,9 @@ namespace SvgColorNormalizer.UI
             var loadFolderBtn = new ToolStripButton("加载文件夹");
             loadFolderBtn.Click += LoadFolder_Click;
 
+            var loadDbBtn = new ToolStripButton("加载数据库");
+            loadDbBtn.Click += LoadDatabase_Click;
+
             var processBtn = new ToolStripButton("批量处理");
             processBtn.Click += Process_Click;
 
@@ -247,7 +295,7 @@ namespace SvgColorNormalizer.UI
             _colorFormatComboBox.SelectedIndex = 0;
             var colorFormatHost = new ToolStripControlHost(_colorFormatComboBox);
 
-            toolStrip.Items.AddRange(new ToolStripItem[] { loadFolderBtn, processBtn, saveBtn, exportBtn, new ToolStripSeparator(), colorFormatLabel, colorFormatHost });
+            toolStrip.Items.AddRange(new ToolStripItem[] { loadFolderBtn, loadDbBtn, processBtn, saveBtn, exportBtn, new ToolStripSeparator(), colorFormatLabel, colorFormatHost });
 
             // 主分割容器
             var mainSplit = new SplitContainer

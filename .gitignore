@@ -53,4 +53,8 @@ CodeCoverage/
 TestResult.xml
 nunit-*.xml
 
-*/.vs
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
