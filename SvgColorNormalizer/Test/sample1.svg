@@ -1,0 +1,12 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 命名颜色 -->
+  <rect x="10" y="10" width="80" height="80" fill="red" stroke="blue" stroke-width="2"/>
+  <!-- 6位16进制 -->
+  <rect x="110" y="10" width="80" height="80" fill="#FF5733" stroke="#00FF00"/>
+  <!-- 8位16进制 -->
+  <circle cx="50" cy="150" r="40" fill="#FF000080"/>
+  <!-- RGB格式 -->
+  <rect x="110" y="110" width="80" height="80" fill="rgb(128, 64, 192)"/>
+  <!-- RGBA格式 -->
+  <circle cx="150" cy="150" r="30" fill="rgba(255, 165, 0, 0.5)"/>
+</svg>
