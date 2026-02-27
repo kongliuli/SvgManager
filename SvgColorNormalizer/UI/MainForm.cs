@@ -253,6 +253,12 @@ namespace SvgColorNormalizer.UI
             }
         }
 
+        private void Config_Click(object? sender, EventArgs e)
+        {
+            var configForm = new DataSourceConfigForm();
+            configForm.ShowDialog();
+        }
+
         // 控件字段
         private DataGridView _fileGrid;
         private DataGridView _colorGrid;
@@ -275,6 +281,9 @@ namespace SvgColorNormalizer.UI
             var loadDbBtn = new ToolStripButton("加载数据库");
             loadDbBtn.Click += LoadDatabase_Click;
 
+            var configBtn = new ToolStripButton("数据源配置");
+            configBtn.Click += Config_Click;
+
             var processBtn = new ToolStripButton("批量处理");
             processBtn.Click += Process_Click;
 
@@ -295,7 +304,7 @@ namespace SvgColorNormalizer.UI
             _colorFormatComboBox.SelectedIndex = 0;
             var colorFormatHost = new ToolStripControlHost(_colorFormatComboBox);
 
-            toolStrip.Items.AddRange(new ToolStripItem[] { loadFolderBtn, loadDbBtn, processBtn, saveBtn, exportBtn, new ToolStripSeparator(), colorFormatLabel, colorFormatHost });
+            toolStrip.Items.AddRange(new ToolStripItem[] { loadFolderBtn, loadDbBtn, configBtn, processBtn, saveBtn, exportBtn, new ToolStripSeparator(), colorFormatLabel, colorFormatHost });
 
             // 主分割容器
             var mainSplit = new SplitContainer

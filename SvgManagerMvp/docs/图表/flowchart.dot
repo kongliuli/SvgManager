@@ -1,0 +1,40 @@
+digraph Flowchart {
+    rankdir=TB;
+    node [shape=box, style=filled, fillcolor=lightyellow];
+    edge [fontsize=10];
+
+    start [label="开始"];
+    load_data [label="加载SVG数据"];
+    choose_source [label="选择数据源"];
+    load_folder [label="从文件夹加载"];
+    load_db [label="从数据库加载"];
+    load_api [label="从API加载"];
+    process_svg [label="处理SVG文件"];
+    batch_process [label="批量处理"];
+    single_process [label="单个处理"];
+    normalize_color [label="颜色标准化"];
+    save_result [label="保存处理结果"];
+    save_file [label="保存到文件"];
+    save_db [label="保存到数据库"];
+    export_report [label="导出报告"];
+    end [label="结束"];
+    start -> load_data;
+    load_data -> choose_source;
+    choose_source -> load_folder [label="文件夹"];
+    choose_source -> load_db [label="数据库"];
+    choose_source -> load_api [label="API"];
+    load_folder -> process_svg;
+    load_db -> process_svg;
+    load_api -> process_svg;
+    process_svg -> batch_process [label="多个文件"];
+    process_svg -> single_process [label="单个文件"];
+    batch_process -> normalize_color;
+    single_process -> normalize_color;
+    normalize_color -> save_result;
+    save_result -> save_file [label="保存文件"];
+    save_result -> save_db [label="保存数据库"];
+    save_result -> export_report [label="导出报告"];
+    save_file -> end;
+    save_db -> end;
+    export_report -> end;
+}

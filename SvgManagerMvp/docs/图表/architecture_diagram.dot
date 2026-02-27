@@ -1,0 +1,43 @@
+digraph ArchitectureDiagram {
+    rankdir=TB;
+    node [shape=box, style=filled, fillcolor=lightgreen];
+
+    presentation [label="表示层", shape=rectangle, style=filled, fillcolor=lightyellow, penwidth=2];
+    business [label="业务逻辑层", shape=rectangle, style=filled, fillcolor=lightyellow, penwidth=2];
+    data [label="数据访问层", shape=rectangle, style=filled, fillcolor=lightyellow, penwidth=2];
+    core [label="核心层", shape=rectangle, style=filled, fillcolor=lightyellow, penwidth=2];
+    presentation -> business [arrowhead=normal];
+    business -> data [arrowhead=normal];
+    data -> core [arrowhead=normal];
+
+    subgraph cluster_presentation {
+        label="表示层组件";
+        style=filled;
+        fillcolor=lightgray;
+        SvgColorNormalizer [label="SvgColorNormalizer", shape=box, style=filled, fillcolor=lightblue];
+        SvgColorNormalizer.Api [label="SvgColorNormalizer.Api", shape=box, style=filled, fillcolor=lightblue];
+    }
+    SvgColorNormalizer -> presentation [style=dotted];
+    SvgColorNormalizer.Api -> presentation [style=dotted];
+
+    subgraph cluster_business {
+        label="业务逻辑层组件";
+        style=filled;
+        fillcolor=lightgray;
+        SvgColorNormalizer.Core [label="SvgColorNormalizer.Core", shape=box, style=filled, fillcolor=lightblue];
+        SvgManagerMvp [label="SvgManagerMvp", shape=box, style=filled, fillcolor=lightblue];
+    }
+    SvgColorNormalizer.Core -> business [style=dotted];
+    SvgManagerMvp -> business [style=dotted];
+
+    subgraph cluster_dependencies {
+        label="项目依赖";
+        style=filled;
+        fillcolor=lightgray;
+        SvgColorNormalizer [label="SvgColorNormalizer", shape=box, style=filled, fillcolor=lightpink];
+        SvgColorNormalizer.Api [label="SvgColorNormalizer.Api", shape=box, style=filled, fillcolor=lightpink];
+        SvgColorNormalizer.Core [label="SvgColorNormalizer.Core", shape=box, style=filled, fillcolor=lightpink];
+        SvgDbInitializer [label="SvgDbInitializer", shape=box, style=filled, fillcolor=lightpink];
+        SvgManagerMvp [label="SvgManagerMvp", shape=box, style=filled, fillcolor=lightpink];
+    }}
+}

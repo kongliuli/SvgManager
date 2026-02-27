@@ -1,0 +1,906 @@
+{
+  "project_structure": {
+    "": {
+      "directories": [
+        ".trae",
+        ".vs",
+        "SvgColorNormalizer",
+        "SvgColorNormalizer.Api",
+        "SvgColorNormalizer.Core",
+        "SvgDbInitializer",
+        "SvgManagerMvp",
+        "参考"
+      ],
+      "files": [
+        ".gitignore",
+        "LICENSE",
+        "README.md",
+        "SvgManager.slnx"
+      ]
+    },
+    ".trae": {
+      "directories": [
+        "documents"
+      ],
+      "files": []
+    },
+    ".trae\\documents": {
+      "directories": [],
+      "files": [
+        "SVG颜色标准化工具 - .NET 10 WinForms项目设计.md"
+      ]
+    },
+    ".vs": {
+      "directories": [
+        "ProjectEvaluation",
+        "SvgManager",
+        "SvgManager.slnx"
+      ],
+      "files": []
+    },
+    ".vs\\ProjectEvaluation": {
+      "directories": [],
+      "files": []
+    },
+    ".vs\\SvgManager": {
+      "directories": [
+        "CopilotIndices"
+      ],
+      "files": []
+    },
+    ".vs\\SvgManager\\CopilotIndices": {
+      "directories": [
+        "17.14.1577.30250"
+      ],
+      "files": []
+    },
+    ".vs\\SvgManager\\CopilotIndices\\17.14.1577.30250": {
+      "directories": [],
+      "files": [
+        "CodeChunks.db",
+        "CodeChunks.db-shm",
+        "CodeChunks.db-wal",
+        "SemanticSymbols.db",
+        "SemanticSymbols.db-shm",
+        "SemanticSymbols.db-wal"
+      ]
+    },
+    ".vs\\SvgManager.slnx": {
+      "directories": [
+        "config",
+        "DesignTimeBuild",
+        "FileContentIndex",
+        "v17",
+        "v18"
+      ],
+      "files": []
+    },
+    ".vs\\SvgManager.slnx\\config": {
+      "directories": [],
+      "files": [
+        "applicationhost.config"
+      ]
+    },
+    ".vs\\SvgManager.slnx\\DesignTimeBuild": {
+      "directories": [],
+      "files": [
+        ".dtbcache.v2"
+      ]
+    },
+    ".vs\\SvgManager.slnx\\FileContentIndex": {
+      "directories": [],
+      "files": [
+        "02c01618-cbf7-4dcc-b8fa-d4d938bfa8b7.vsidx",
+        "6e491a34-627c-40dd-a789-7a4c22ae8607.vsidx"
+      ]
+    },
+    ".vs\\SvgManager.slnx\\v17": {
+      "directories": [],
+      "files": [
+        ".suo",
+        "DocumentLayout.backup.json",
+        "DocumentLayout.json"
+      ]
+    },
+    ".vs\\SvgManager.slnx\\v18": {
+      "directories": [],
+      "files": [
+        ".futdcache.v2",
+        ".suo",
+        "DocumentLayout.backup.json",
+        "DocumentLayout.json"
+      ]
+    },
+    "SvgColorNormalizer": {
+      "directories": [
+        ".vs",
+        "Core",
+        "DataSources",
+        "Models",
+        "Test",
+        "UI"
+      ],
+      "files": [
+        "SvgColorNormalizer.csproj",
+        "SvgColorNormalizer.csproj.user"
+      ]
+    },
+    "SvgColorNormalizer\\.vs": {
+      "directories": [
+        "SvgColorNormalizer"
+      ],
+      "files": []
+    },
+    "SvgColorNormalizer\\.vs\\SvgColorNormalizer": {
+      "directories": [
+        "CopilotIndices",
+        "FileContentIndex",
+        "v17"
+      ],
+      "files": []
+    },
+    "SvgColorNormalizer\\.vs\\SvgColorNormalizer\\CopilotIndices": {
+      "directories": [
+        "17.14.1577.30250"
+      ],
+      "files": []
+    },
+    "SvgColorNormalizer\\.vs\\SvgColorNormalizer\\CopilotIndices\\17.14.1577.30250": {
+      "directories": [],
+      "files": [
+        "CodeChunks.db",
+        "SemanticSymbols.db"
+      ]
+    },
+    "SvgColorNormalizer\\.vs\\SvgColorNormalizer\\FileContentIndex": {
+      "directories": [],
+      "files": [
+        "36a7fb91-3591-4759-bd3e-614baa4389c0.vsidx"
+      ]
+    },
+    "SvgColorNormalizer\\.vs\\SvgColorNormalizer\\v17": {
+      "directories": [],
+      "files": [
+        ".futdcache.v2",
+        ".suo"
+      ]
+    },
+    "SvgColorNormalizer\\Core": {
+      "directories": [],
+      "files": []
+    },
+    "SvgColorNormalizer\\DataSources": {
+      "directories": [],
+      "files": []
+    },
+    "SvgColorNormalizer\\Models": {
+      "directories": [],
+      "files": []
+    },
+    "SvgColorNormalizer\\Test": {
+      "directories": [],
+      "files": [
+        "sample1.svg",
+        "sample2.svg",
+        "test.sql"
+      ]
+    },
+    "SvgColorNormalizer\\UI": {
+      "directories": [],
+      "files": [
+        "DataSourceConfigForm.cs",
+        "MainForm.cs",
+        "MainForm.resx",
+        "Program.cs"
+      ]
+    },
+    "SvgColorNormalizer.Api": {
+      "directories": [
+        "Controllers"
+      ],
+      "files": [
+        "appsettings.Development.json",
+        "appsettings.json",
+        "Program.cs",
+        "SvgColorNormalizer.Api.csproj",
+        "SvgColorNormalizer.Api.csproj.user",
+        "SvgColorNormalizer.Api.http"
+      ]
+    },
+    "SvgColorNormalizer.Api\\Controllers": {
+      "directories": [],
+      "files": [
+        "SvgController.cs"
+      ]
+    },
+    "SvgColorNormalizer.Core": {
+      "directories": [
+        "Core",
+        "DataSources",
+        "Models"
+      ],
+      "files": [
+        "SvgColorNormalizer.Core.csproj"
+      ]
+    },
+    "SvgColorNormalizer.Core\\Core": {
+      "directories": [],
+      "files": [
+        "ColorNormalizer.cs",
+        "SvgBatchProcessor.cs",
+        "SvgProcessor.cs"
+      ]
+    },
+    "SvgColorNormalizer.Core\\DataSources": {
+      "directories": [],
+      "files": [
+        "ConfigurableApiSvgSource.cs",
+        "ConfigurableDataSourceBase.cs",
+        "ConfigurableDmSvgSource.cs",
+        "ConfigurableFolderSvgSource.cs",
+        "ConfigurablePostgreSqlSvgSource.cs",
+        "ConfigurableSqliteSvgSource.cs",
+        "ConfigurableSqlServerSvgSource.cs",
+        "DataSourceConfigManager.cs",
+        "FolderSvgSource.cs",
+        "FolderSvgStorage.cs",
+        "IConfigurableDataSource.cs",
+        "ISvgSource.cs",
+        "ISvgStorage.cs",
+        "SqliteSvgSource.cs",
+        "SqliteSvgStorage.cs"
+      ]
+    },
+    "SvgColorNormalizer.Core\\Models": {
+      "directories": [],
+      "files": [
+        "ColorChange.cs",
+        "SvgData.cs",
+        "SvgProcessResult.cs"
+      ]
+    },
+    "SvgDbInitializer": {
+      "directories": [],
+      "files": [
+        "Program.cs",
+        "SvgDbInitializer.csproj",
+        "svg_assets.db"
+      ]
+    },
+    "SvgManagerMvp": {
+      "directories": [
+        ".vs",
+        "Data",
+        "docs",
+        "Models",
+        "scripts",
+        "Services"
+      ],
+      "files": [
+        "AllSvgForm.cs",
+        "AllSvgForm.Designer.cs",
+        "App.config",
+        "ConfigForm.cs",
+        "ConfigForm.Designer.cs",
+        "Form1.resx",
+        "MainForm.cs",
+        "MainForm.Designer.cs",
+        "MainForm.resx",
+        "Program.cs",
+        "SvgManagerMvp.csproj",
+        "SvgManagerMvp.csproj.user",
+        "SvgManagerMvp.sln",
+        "SvgPreviewForm.cs",
+        "SvgPreviewForm.Designer.cs"
+      ]
+    },
+    "SvgManagerMvp\\.vs": {
+      "directories": [
+        "ProjectEvaluation",
+        "SvgManagerMvp"
+      ],
+      "files": []
+    },
+    "SvgManagerMvp\\.vs\\ProjectEvaluation": {
+      "directories": [],
+      "files": [
+        "svgmanagermvp.metadata.v10.bin",
+        "svgmanagermvp.projects.v10.bin",
+        "svgmanagermvp.strings.v10.bin"
+      ]
+    },
+    "SvgManagerMvp\\.vs\\SvgManagerMvp": {
+      "directories": [
+        "DesignTimeBuild",
+        "FileContentIndex",
+        "v18"
+      ],
+      "files": []
+    },
+    "SvgManagerMvp\\.vs\\SvgManagerMvp\\DesignTimeBuild": {
+      "directories": [],
+      "files": [
+        ".dtbcache.v2"
+      ]
+    },
+    "SvgManagerMvp\\.vs\\SvgManagerMvp\\FileContentIndex": {
+      "directories": [],
+      "files": [
+        "312207e3-530e-4fe4-a9f2-45bda5d2b3b3.vsidx",
+        "3c8a2658-0e36-4218-a1a2-f5b203a3a298.vsidx",
+        "b1a4caf1-17c3-4187-8d19-ec26fb26012e.vsidx"
+      ]
+    },
+    "SvgManagerMvp\\.vs\\SvgManagerMvp\\v18": {
+      "directories": [],
+      "files": [
+        ".futdcache.v2",
+        ".suo",
+        "DocumentLayout.backup.json",
+        "DocumentLayout.json"
+      ]
+    },
+    "SvgManagerMvp\\Data": {
+      "directories": [],
+      "files": [
+        "ConfigManager.cs",
+        "DbHelper.cs",
+        "SvgDbContext.cs"
+      ]
+    },
+    "SvgManagerMvp\\docs": {
+      "directories": [
+        "图表"
+      ],
+      "files": []
+    },
+    "SvgManagerMvp\\docs\\图表": {
+      "directories": [],
+      "files": []
+    },
+    "SvgManagerMvp\\Models": {
+      "directories": [],
+      "files": [
+        "SvgData.cs"
+      ]
+    },
+    "SvgManagerMvp\\scripts": {
+      "directories": [],
+      "files": [
+        "analyze_project.py",
+        "generate_architecture_diagram.py",
+        "generate_class_diagram.py",
+        "generate_flowchart.py"
+      ]
+    },
+    "SvgManagerMvp\\Services": {
+      "directories": [],
+      "files": [
+        "SvgColorConverter.cs"
+      ]
+    },
+    "参考": {
+      "directories": [],
+      "files": [
+        "SvgColorNormalizer_Development_Guide.md"
+      ]
+    }
+  },
+  "classes": [
+    {
+      "name": "DataSourceConfigForm",
+      "namespace": "SvgColorNormalizer.UI",
+      "file": "SvgColorNormalizer\\UI\\DataSourceConfigForm.cs",
+      "base_classes": [
+        "Form"
+      ],
+      "methods": [
+        "LoadConfigData",
+        "InitializeComponent",
+        "AddDataSource_Click",
+        "EditDataSource_Click",
+        "DeleteDataSource_Click",
+        "AddStorage_Click",
+        "EditStorage_Click",
+        "DeleteStorage_Click",
+        "Save_Click",
+        "Cancel_Click",
+        "InitializeComponent",
+        "LoadExistingConfig",
+        "TypeComboBox_SelectedIndexChanged",
+        "AddConfigRow",
+        "Save_Click",
+        "Cancel_Click",
+        "InitializeComponent",
+        "LoadExistingConfig",
+        "TypeComboBox_SelectedIndexChanged",
+        "AddConfigRow",
+        "Save_Click",
+        "Cancel_Click"
+      ]
+    },
+    {
+      "name": "DataSourceEditorForm",
+      "namespace": "SvgColorNormalizer.UI",
+      "file": "SvgColorNormalizer\\UI\\DataSourceConfigForm.cs",
+      "base_classes": [
+        "Form"
+      ],
+      "methods": [
+        "LoadConfigData",
+        "InitializeComponent",
+        "AddDataSource_Click",
+        "EditDataSource_Click",
+        "DeleteDataSource_Click",
+        "AddStorage_Click",
+        "EditStorage_Click",
+        "DeleteStorage_Click",
+        "Save_Click",
+        "Cancel_Click",
+        "InitializeComponent",
+        "LoadExistingConfig",
+        "TypeComboBox_SelectedIndexChanged",
+        "AddConfigRow",
+        "Save_Click",
+        "Cancel_Click",
+        "InitializeComponent",
+        "LoadExistingConfig",
+        "TypeComboBox_SelectedIndexChanged",
+        "AddConfigRow",
+        "Save_Click",
+        "Cancel_Click"
+      ]
+    },
+    {
+      "name": "StorageEditorForm",
+      "namespace": "SvgColorNormalizer.UI",
+      "file": "SvgColorNormalizer\\UI\\DataSourceConfigForm.cs",
+      "base_classes": [
+        "Form"
+      ],
+      "methods": [
+        "LoadConfigData",
+        "InitializeComponent",
+        "AddDataSource_Click",
+        "EditDataSource_Click",
+        "DeleteDataSource_Click",
+        "AddStorage_Click",
+        "EditStorage_Click",
+        "DeleteStorage_Click",
+        "Save_Click",
+        "Cancel_Click",
+        "InitializeComponent",
+        "LoadExistingConfig",
+        "TypeComboBox_SelectedIndexChanged",
+        "AddConfigRow",
+        "Save_Click",
+        "Cancel_Click",
+        "InitializeComponent",
+        "LoadExistingConfig",
+        "TypeComboBox_SelectedIndexChanged",
+        "AddConfigRow",
+        "Save_Click",
+        "Cancel_Click"
+      ]
+    },
+    {
+      "name": "SvgController",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [
+        "ControllerBase"
+      ],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "SvgNormalizeRequest",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "SvgNormalizeResponse",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "SvgBatchNormalizeRequest",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "SvgBatchItem",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "SvgBatchNormalizeResponse",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "SvgBatchResultItem",
+      "namespace": "SvgColorNormalizer.Api.Controllers",
+      "file": "SvgColorNormalizer.Api\\Controllers\\SvgController.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvg",
+        "NormalizeSvgBatch"
+      ]
+    },
+    {
+      "name": "ColorNormalizer",
+      "namespace": "SvgColorNormalizer.Core",
+      "file": "SvgColorNormalizer.Core\\Core\\ColorNormalizer.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeColor",
+        "ConvertToTargetFormat"
+      ]
+    },
+    {
+      "name": "SvgBatchProcessor",
+      "namespace": "SvgColorNormalizer.Core",
+      "file": "SvgColorNormalizer.Core\\Core\\SvgBatchProcessor.cs",
+      "base_classes": [],
+      "methods": [
+        "ProcessBatchAsync"
+      ]
+    },
+    {
+      "name": "SvgProcessor",
+      "namespace": "SvgColorNormalizer.Core",
+      "file": "SvgColorNormalizer.Core\\Core\\SvgProcessor.cs",
+      "base_classes": [],
+      "methods": [
+        "ProcessSvg"
+      ]
+    },
+    {
+      "name": "ConfigurableApiSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableApiSvgSource.cs",
+      "base_classes": [
+        "ConfigurableDataSourceBase"
+      ],
+      "methods": []
+    },
+    {
+      "name": "ApiSvgResponse",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableApiSvgSource.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "ApiSvgItem",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableApiSvgSource.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "ConfigurableDmSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableDmSvgSource.cs",
+      "base_classes": [
+        "ConfigurableDataSourceBase"
+      ],
+      "methods": [
+        "GetConnectionString"
+      ]
+    },
+    {
+      "name": "ConfigurableFolderSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableFolderSvgSource.cs",
+      "base_classes": [
+        "ConfigurableDataSourceBase"
+      ],
+      "methods": []
+    },
+    {
+      "name": "ConfigurablePostgreSqlSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurablePostgreSqlSvgSource.cs",
+      "base_classes": [
+        "ConfigurableDataSourceBase"
+      ],
+      "methods": [
+        "GetConnectionString"
+      ]
+    },
+    {
+      "name": "ConfigurableSqliteSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableSqliteSvgSource.cs",
+      "base_classes": [
+        "ConfigurableDataSourceBase"
+      ],
+      "methods": [
+        "GetConnectionString"
+      ]
+    },
+    {
+      "name": "ConfigurableSqlServerSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\ConfigurableSqlServerSvgSource.cs",
+      "base_classes": [
+        "ConfigurableDataSourceBase"
+      ],
+      "methods": [
+        "GetConnectionString"
+      ]
+    },
+    {
+      "name": "DataSourceConfigManager",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\DataSourceConfigManager.cs",
+      "base_classes": [],
+      "methods": [
+        "LoadConfig",
+        "SaveConfig",
+        "CreateDataSource",
+        "CreateStorage",
+        "SaveDataToStorage"
+      ]
+    },
+    {
+      "name": "DataSourceConfig",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\DataSourceConfigManager.cs",
+      "base_classes": [],
+      "methods": [
+        "LoadConfig",
+        "SaveConfig",
+        "CreateDataSource",
+        "CreateStorage",
+        "SaveDataToStorage"
+      ]
+    },
+    {
+      "name": "DataSourceConfiguration",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\DataSourceConfigManager.cs",
+      "base_classes": [],
+      "methods": [
+        "LoadConfig",
+        "SaveConfig",
+        "CreateDataSource",
+        "CreateStorage",
+        "SaveDataToStorage"
+      ]
+    },
+    {
+      "name": "StorageConfiguration",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\DataSourceConfigManager.cs",
+      "base_classes": [],
+      "methods": [
+        "LoadConfig",
+        "SaveConfig",
+        "CreateDataSource",
+        "CreateStorage",
+        "SaveDataToStorage"
+      ]
+    },
+    {
+      "name": "FolderSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\FolderSvgSource.cs",
+      "base_classes": [
+        "ISvgSource"
+      ],
+      "methods": [
+        "LoadAsync"
+      ]
+    },
+    {
+      "name": "FolderSvgStorage",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\FolderSvgStorage.cs",
+      "base_classes": [
+        "ISvgStorage"
+      ],
+      "methods": [
+        "SaveAsync",
+        "SaveAsync"
+      ]
+    },
+    {
+      "name": "SqliteSvgSource",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\SqliteSvgSource.cs",
+      "base_classes": [
+        "ISvgSource"
+      ],
+      "methods": [
+        "LoadAsync",
+        "SaveAsync",
+        "InitializeDatabase",
+        "InsertSampleData"
+      ]
+    },
+    {
+      "name": "SqliteSvgStorage",
+      "namespace": "SvgColorNormalizer.Core.DataSources",
+      "file": "SvgColorNormalizer.Core\\DataSources\\SqliteSvgStorage.cs",
+      "base_classes": [
+        "ISvgStorage"
+      ],
+      "methods": [
+        "SaveAsync",
+        "SaveAsync",
+        "InitializeDatabase"
+      ]
+    },
+    {
+      "name": "ColorChange",
+      "namespace": "SvgColorNormalizer.Core.Models",
+      "file": "SvgColorNormalizer.Core\\Models\\ColorChange.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "SvgData",
+      "namespace": "SvgColorNormalizer.Core.Models",
+      "file": "SvgColorNormalizer.Core\\Models\\SvgData.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "SvgProcessResult",
+      "namespace": "SvgColorNormalizer.Core.Models",
+      "file": "SvgColorNormalizer.Core\\Models\\SvgProcessResult.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "BatchProcessResult",
+      "namespace": "SvgColorNormalizer.Core.Models",
+      "file": "SvgColorNormalizer.Core\\Models\\SvgProcessResult.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "SvgPreviewControl",
+      "namespace": "SvgManagerMvp",
+      "file": "SvgManagerMvp\\AllSvgForm.cs",
+      "base_classes": [
+        "UserControl"
+      ],
+      "methods": [
+        "InitializeStatusStrip",
+        "InitializeDatabase",
+        "LoadSvgData",
+        "UpdatePagination",
+        "UpdateStatus",
+        "buttonPrev_Click",
+        "buttonNext_Click",
+        "InitializeComponent",
+        "LoadSvg"
+      ]
+    },
+    {
+      "name": "ConfigManager",
+      "namespace": "SvgManagerMvp.Data",
+      "file": "SvgManagerMvp\\Data\\ConfigManager.cs",
+      "base_classes": [],
+      "methods": [
+        "GetConnectionString",
+        "SaveConnectionString"
+      ]
+    },
+    {
+      "name": "DbHelper",
+      "namespace": "SvgManagerMvp.Data",
+      "file": "SvgManagerMvp\\Data\\DbHelper.cs",
+      "base_classes": [],
+      "methods": [
+        "GetConnection",
+        "ExecuteQuery",
+        "ExecuteNonQuery",
+        "ExecuteScalar",
+        "CreateDataAdapter",
+        "CreateParameter"
+      ]
+    },
+    {
+      "name": "SvgDbContext",
+      "namespace": "SvgManagerMvp.Data",
+      "file": "SvgManagerMvp\\Data\\SvgDbContext.cs",
+      "base_classes": [
+        "DbContext"
+      ],
+      "methods": []
+    },
+    {
+      "name": "SvgData",
+      "namespace": "SvgManagerMvp.Models",
+      "file": "SvgManagerMvp\\Models\\SvgData.cs",
+      "base_classes": [],
+      "methods": []
+    },
+    {
+      "name": "SvgColorConverter",
+      "namespace": "SvgManagerMvp.Services",
+      "file": "SvgManagerMvp\\Services\\SvgColorConverter.cs",
+      "base_classes": [],
+      "methods": [
+        "NormalizeSvgColors",
+        "ConvertToTargetFormat"
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "project": "SvgColorNormalizer",
+      "file": "SvgColorNormalizer\\SvgColorNormalizer.csproj",
+      "project_references": [],
+      "package_references": []
+    },
+    {
+      "project": "SvgColorNormalizer.Api",
+      "file": "SvgColorNormalizer.Api\\SvgColorNormalizer.Api.csproj",
+      "project_references": [],
+      "package_references": []
+    },
+    {
+      "project": "SvgColorNormalizer.Core",
+      "file": "SvgColorNormalizer.Core\\SvgColorNormalizer.Core.csproj",
+      "project_references": [],
+      "package_references": []
+    },
+    {
+      "project": "SvgDbInitializer",
+      "file": "SvgDbInitializer\\SvgDbInitializer.csproj",
+      "project_references": [],
+      "package_references": []
+    },
+    {
+      "project": "SvgManagerMvp",
+      "file": "SvgManagerMvp\\SvgManagerMvp.csproj",
+      "project_references": [],
+      "package_references": []
+    }
+  ],
+  "architecture": {
+    "presentation": [
+      "SvgColorNormalizer",
+      "SvgColorNormalizer.Api"
+    ],
+    "business": [
+      "SvgColorNormalizer.Core",
+      "SvgManagerMvp"
+    ],
+    "data": [],
+    "core": []
+  }
+}

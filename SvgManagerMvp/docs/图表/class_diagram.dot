@@ -1,0 +1,223 @@
+digraph ClassDiagram {
+    rankdir=TB;
+    node [shape=record, style=filled, fillcolor=lightblue];
+
+    DataSourceConfigForm [label="{SvgColorNormalizer.UI
+DataSourceConfigForm|
+{LoadConfigData}|
+{InitializeComponent}|
+{AddDataSource_Click}|
+{EditDataSource_Click}|
+{DeleteDataSource_Click}|
+{AddStorage_Click}|
+{EditStorage_Click}|
+{DeleteStorage_Click}|
+{Save_Click}|
+{Cancel_Click}|
+}"];
+    DataSourceEditorForm [label="{SvgColorNormalizer.UI
+DataSourceEditorForm|
+{LoadConfigData}|
+{InitializeComponent}|
+{AddDataSource_Click}|
+{EditDataSource_Click}|
+{DeleteDataSource_Click}|
+{AddStorage_Click}|
+{EditStorage_Click}|
+{DeleteStorage_Click}|
+{Save_Click}|
+{Cancel_Click}|
+}"];
+    StorageEditorForm [label="{SvgColorNormalizer.UI
+StorageEditorForm|
+{LoadConfigData}|
+{InitializeComponent}|
+{AddDataSource_Click}|
+{EditDataSource_Click}|
+{DeleteDataSource_Click}|
+{AddStorage_Click}|
+{EditStorage_Click}|
+{DeleteStorage_Click}|
+{Save_Click}|
+{Cancel_Click}|
+}"];
+    SvgController [label="{SvgColorNormalizer.Api.Controllers
+SvgController|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    SvgNormalizeRequest [label="{SvgColorNormalizer.Api.Controllers
+SvgNormalizeRequest|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    SvgNormalizeResponse [label="{SvgColorNormalizer.Api.Controllers
+SvgNormalizeResponse|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    SvgBatchNormalizeRequest [label="{SvgColorNormalizer.Api.Controllers
+SvgBatchNormalizeRequest|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    SvgBatchItem [label="{SvgColorNormalizer.Api.Controllers
+SvgBatchItem|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    SvgBatchNormalizeResponse [label="{SvgColorNormalizer.Api.Controllers
+SvgBatchNormalizeResponse|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    SvgBatchResultItem [label="{SvgColorNormalizer.Api.Controllers
+SvgBatchResultItem|
+{NormalizeSvg}|
+{NormalizeSvgBatch}|
+}"];
+    ColorNormalizer [label="{SvgColorNormalizer.Core
+ColorNormalizer|
+{NormalizeColor}|
+{ConvertToTargetFormat}|
+}"];
+    SvgBatchProcessor [label="{SvgColorNormalizer.Core
+SvgBatchProcessor|
+{ProcessBatchAsync}|
+}"];
+    SvgProcessor [label="{SvgColorNormalizer.Core
+SvgProcessor|
+{ProcessSvg}|
+}"];
+    ConfigurableApiSvgSource [label="{SvgColorNormalizer.Core.DataSources
+ConfigurableApiSvgSource|
+}"];
+    ApiSvgResponse [label="{SvgColorNormalizer.Core.DataSources
+ApiSvgResponse|
+}"];
+    ApiSvgItem [label="{SvgColorNormalizer.Core.DataSources
+ApiSvgItem|
+}"];
+    ConfigurableDmSvgSource [label="{SvgColorNormalizer.Core.DataSources
+ConfigurableDmSvgSource|
+{GetConnectionString}|
+}"];
+    ConfigurableFolderSvgSource [label="{SvgColorNormalizer.Core.DataSources
+ConfigurableFolderSvgSource|
+}"];
+    ConfigurablePostgreSqlSvgSource [label="{SvgColorNormalizer.Core.DataSources
+ConfigurablePostgreSqlSvgSource|
+{GetConnectionString}|
+}"];
+    ConfigurableSqliteSvgSource [label="{SvgColorNormalizer.Core.DataSources
+ConfigurableSqliteSvgSource|
+{GetConnectionString}|
+}"];
+    ConfigurableSqlServerSvgSource [label="{SvgColorNormalizer.Core.DataSources
+ConfigurableSqlServerSvgSource|
+{GetConnectionString}|
+}"];
+    DataSourceConfigManager [label="{SvgColorNormalizer.Core.DataSources
+DataSourceConfigManager|
+{LoadConfig}|
+{SaveConfig}|
+{CreateDataSource}|
+{CreateStorage}|
+{SaveDataToStorage}|
+}"];
+    DataSourceConfig [label="{SvgColorNormalizer.Core.DataSources
+DataSourceConfig|
+{LoadConfig}|
+{SaveConfig}|
+{CreateDataSource}|
+{CreateStorage}|
+{SaveDataToStorage}|
+}"];
+    DataSourceConfiguration [label="{SvgColorNormalizer.Core.DataSources
+DataSourceConfiguration|
+{LoadConfig}|
+{SaveConfig}|
+{CreateDataSource}|
+{CreateStorage}|
+{SaveDataToStorage}|
+}"];
+    StorageConfiguration [label="{SvgColorNormalizer.Core.DataSources
+StorageConfiguration|
+{LoadConfig}|
+{SaveConfig}|
+{CreateDataSource}|
+{CreateStorage}|
+{SaveDataToStorage}|
+}"];
+    FolderSvgSource [label="{SvgColorNormalizer.Core.DataSources
+FolderSvgSource|
+{LoadAsync}|
+}"];
+    FolderSvgStorage [label="{SvgColorNormalizer.Core.DataSources
+FolderSvgStorage|
+{SaveAsync}|
+{SaveAsync}|
+}"];
+    SqliteSvgSource [label="{SvgColorNormalizer.Core.DataSources
+SqliteSvgSource|
+{LoadAsync}|
+{SaveAsync}|
+{InitializeDatabase}|
+{InsertSampleData}|
+}"];
+    SqliteSvgStorage [label="{SvgColorNormalizer.Core.DataSources
+SqliteSvgStorage|
+{SaveAsync}|
+{SaveAsync}|
+{InitializeDatabase}|
+}"];
+    ColorChange [label="{SvgColorNormalizer.Core.Models
+ColorChange|
+}"];
+    SvgData [label="{SvgColorNormalizer.Core.Models
+SvgData|
+}"];
+    SvgProcessResult [label="{SvgColorNormalizer.Core.Models
+SvgProcessResult|
+}"];
+    BatchProcessResult [label="{SvgColorNormalizer.Core.Models
+BatchProcessResult|
+}"];
+    SvgPreviewControl [label="{SvgManagerMvp
+SvgPreviewControl|
+{InitializeStatusStrip}|
+{InitializeDatabase}|
+{LoadSvgData}|
+{UpdatePagination}|
+{UpdateStatus}|
+{buttonPrev_Click}|
+{buttonNext_Click}|
+{InitializeComponent}|
+{LoadSvg}|
+}"];
+    ConfigManager [label="{SvgManagerMvp.Data
+ConfigManager|
+{GetConnectionString}|
+{SaveConnectionString}|
+}"];
+    DbHelper [label="{SvgManagerMvp.Data
+DbHelper|
+{GetConnection}|
+{ExecuteQuery}|
+{ExecuteNonQuery}|
+{ExecuteScalar}|
+{CreateDataAdapter}|
+{CreateParameter}|
+}"];
+    SvgDbContext [label="{SvgManagerMvp.Data
+SvgDbContext|
+}"];
+    SvgData [label="{SvgManagerMvp.Models
+SvgData|
+}"];
+    SvgColorConverter [label="{SvgManagerMvp.Services
+SvgColorConverter|
+{NormalizeSvgColors}|
+{ConvertToTargetFormat}|
+}"];
+}
