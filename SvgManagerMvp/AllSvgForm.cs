@@ -17,6 +17,16 @@ namespace SvgManagerMvp
             InitializeStatusStrip();
             InitializeDatabase();
             LoadSvgData();
+            this.Resize += new System.EventHandler(this.AllSvgForm_Resize);
+        }
+
+        private void AllSvgForm_Resize(object sender, EventArgs e)
+        {
+            // 调整flowLayoutPanel的大小以适应窗口
+            flowLayoutPanelSvg.Size = new System.Drawing.Size(
+                this.ClientSize.Width - 24, // 24是左右边距
+                this.ClientSize.Height - 80 // 80是上下边距和状态栏高度
+            );
         }
 
         private void InitializeStatusStrip()
@@ -33,12 +43,13 @@ namespace SvgManagerMvp
         {
             try
             {
-                var connectionString = ConfigManager.GetConnectionString();
+                // 使用SQLite数据库进行测试
                 var options = new DbContextOptionsBuilder<SvgDbContext>()
-                    .UseSqlServer(connectionString) // 注意：实际部署时需要替换为UseDm
+                    .UseSqlite("Data Source=svg_test.db")
                     .Options;
 
                 _context = new SvgDbContext(options);
+                _context.Database.EnsureCreated();
             }
             catch (Exception ex)
             {
@@ -108,12 +119,17 @@ namespace SvgManagerMvp
         private WebBrowser webBrowserSvg;
         private Label labelName;
         private SvgData _svgData;
+        private Color _originalBackColor;
 
         public SvgPreviewControl(SvgData svgData)
         {
             _svgData = svgData;
             InitializeComponent();
             LoadSvg();
+            _originalBackColor = this.BackColor;
+            this.MouseEnter += new System.EventHandler(this.SvgPreviewControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.SvgPreviewControl_MouseLeave);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
         }
 
         private void InitializeComponent()
@@ -124,31 +140,34 @@ namespace SvgManagerMvp
             // 
             // webBrowserSvg
             // 
-            this.webBrowserSvg.Location = new System.Drawing.Point(10, 30);
+            this.webBrowserSvg.Location = new System.Drawing.Point(12, 36);
             this.webBrowserSvg.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowserSvg.Name = "webBrowserSvg";
-            this.webBrowserSvg.Size = new System.Drawing.Size(150, 150);
+            this.webBrowserSvg.Size = new System.Drawing.Size(180, 180);
             this.webBrowserSvg.TabIndex = 0;
             // 
             // labelName
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(10, 10);
+            this.labelName.AutoEllipsis = true;
+            this.labelName.Location = new System.Drawing.Point(12, 12);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(39, 15);
+            this.labelName.Size = new System.Drawing.Size(180, 18);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Name";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SvgPreviewControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.webBrowserSvg);
+            this.Margin = new System.Windows.Forms.Padding(8);
             this.Name = "SvgPreviewControl";
-            this.Size = new System.Drawing.Size(170, 190);
+            this.Size = new System.Drawing.Size(204, 230);
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         private void LoadSvg()
@@ -165,7 +184,7 @@ namespace SvgManagerMvp
 <head>
     <title>SVG Preview</title>
     <style>
-        body {{ margin: 0; padding: 0; }}
+        body {{ margin: 0; padding: 0; background-color: transparent; }}
         svg {{ width: 100%; height: 100%; }}
     </style>
 </head>
@@ -176,6 +195,18 @@ namespace SvgManagerMvp
 ";
 
             webBrowserSvg.DocumentText = html;
+        }
+
+        private void SvgPreviewControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+        }
+
+        private void SvgPreviewControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = _originalBackColor;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         }
     }
 }

@@ -15,14 +15,13 @@ namespace SvgManagerMvp.Data
         {
             modelBuilder.Entity<SvgData>(entity =>
             {
-                entity.ToTable("iconResources", "FENGSUIJB");
+                entity.ToTable("IconResources");
                 entity.HasKey(e => e.Id);
-                entity.Property(e => e.Id).HasColumnName("id");
-                entity.Property(e => e.Content).HasColumnName("content").IsRequired();
-                entity.Property(e => e.Name).HasColumnName("name").IsRequired();
-                entity.Property(e => e.Category).HasColumnName("category");
-                entity.Property(e => e.CreatedAt).HasColumnName("created_at");
-                entity.Property(e => e.UpdatedAt).HasColumnName("updated_at");
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
+                entity.Property(e => e.Content).IsRequired();
+                entity.Property(e => e.Name).IsRequired();
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("datetime('now')");
+                entity.Property(e => e.UpdatedAt).HasDefaultValueSql("datetime('now')");
             });
         }
     }

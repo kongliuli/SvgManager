@@ -23,11 +23,17 @@ namespace SvgManagerMvp
             // 
             // flowLayoutPanelSvg
             // 
+
             this.flowLayoutPanelSvg.AutoScroll = true;
+            this.flowLayoutPanelSvg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelSvg.FlowDirection = System.Windows.Forms.FlowDirection.LeftToRight;
             this.flowLayoutPanelSvg.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanelSvg.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelSvg.Name = "flowLayoutPanelSvg";
+            this.flowLayoutPanelSvg.Padding = new System.Windows.Forms.Padding(8);
             this.flowLayoutPanelSvg.Size = new System.Drawing.Size(800, 400);
             this.flowLayoutPanelSvg.TabIndex = 0;
+            this.flowLayoutPanelSvg.WrapContents = true;
             // 
             // buttonPrev
             // 
